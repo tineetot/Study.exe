@@ -1,16 +1,31 @@
-# React + Vite
+# Study.exe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cozy finals reviewer for a second-year BSIT-MWA student, built with React and Vite using JavaScript.
 
-Currently, two official plugins are available:
+## Current scope
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The initial shell includes Home, Reviewer, Practice Quiz, and Progress panels. Platform Technologies is the only subject. Other sections contain placeholders; lessons, flashcards, quizzes, and progress storage are not implemented yet.
 
-## React Compiler
+Navigation uses React state. Reloading returns to Home. Real subjects can be added to `src/data/subjects.js` later. Future progress will be stored locally in the browser; this version has no backend or accounts.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local development
 
-## Expanding the ESLint configuration
+With the project's dependencies installed, run `npm run dev` in the project directory and open the local URL printed by Vite. Press Ctrl+C in the terminal to stop it.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+On Windows PowerShell, if script execution blocks `npm`, use `npm.cmd` instead (for example, `npm.cmd run dev`).
+
+- `npm run lint` checks JavaScript and React conventions.
+- `npm run build` creates a production build in `dist`.
+- `npm run preview` serves that build locally; open the URL it prints.
+
+## Project files
+
+- `src/main.jsx` starts React and loads global styles.
+- `src/App.jsx` contains the shell, navigation state, and placeholder panels.
+- `src/data/subjects.js` holds the subject list.
+- `src/index.css` defines shared design tokens and basic element styles.
+- `src/App.css` defines the responsive shell layout.
+
+## Repository content
+
+Keep private class materials, original PDFs, personal information, and answer keys out of this public repository.
