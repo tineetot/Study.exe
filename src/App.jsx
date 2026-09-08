@@ -34,11 +34,28 @@ function App() {
         <aside className="sidebar" aria-label="Study workspace">
           <div className="subject-picker">
             <label className="eyebrow" htmlFor="subject">Current subject</label>
-            <select id="subject" value={selectedSubjectId} onChange={(event) => setSelectedSubjectId(event.target.value)}>
-              {subjects.map((subject) => (
-                <option key={subject.id} value={subject.id}>{subject.name}</option>
-              ))}
-            </select>
+            <div className="subject-select-wrapper">
+              <select id="subject" value={selectedSubjectId} onChange={(event) => setSelectedSubjectId(event.target.value)}>
+                {subjects.map((subject) => (
+                  <option key={subject.id} value={subject.id}>{subject.name}</option>
+                ))}
+              </select>
+              <svg
+                className="subject-select-chevron"
+                aria-hidden="true"
+                focusable="false"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
           </div>
           <nav aria-label="Main navigation">
             <ul className="navigation">
