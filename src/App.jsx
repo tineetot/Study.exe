@@ -26,7 +26,7 @@ function App() {
     <div className="study-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="app-header">
-        <span className="wordmark">Study<span>.exe</span></span>
+        <span className="wordmark">Study<span>.exe</span><span className="brand-cursor" aria-hidden="true" /></span>
         <span className="header-note">Your finals study space</span>
       </header>
 
@@ -94,7 +94,7 @@ function App() {
                   {subjects.map((subject) => (
                     <li className="subject-card" key={subject.id}>
                       <span className="subject-mark" aria-hidden="true">{subject.shortLabel}</span>
-                      <div>
+                      <div className="subject-details">
                         <p className="eyebrow">Study space available</p>
                         <h3>{subject.name}</h3>
                         <p>Reviewer and practice materials coming soon.</p>
