@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { subjects } from './data/subjects.js'
+import homeMascot from './assets/mascot/mascot-home.png'
+import reviewerMascot from './assets/mascot/mascot-reviewer.png'
+import quizMascot from './assets/mascot/mascot-quiz.png'
+import progressMascot from './assets/mascot/mascot-progress.png'
 import './App.css'
 
 const sections = [
@@ -14,6 +18,9 @@ const placeholders = {
   quiz: { title: 'A space to put your learning into practice.', text: 'Practice quizzes are coming soon. There are no questions to answer just yet.' },
   progress: { title: 'Every small step will count.', text: 'No study activity yet. This space will show your progress once study features are available.' },
 }
+
+// The flashcards mascot is reserved for a future Reviewer subsection.
+const panelMascots = { reviewer: reviewerMascot, quiz: quizMascot, progress: progressMascot }
 
 function App() {
   // State remembers the current panel between renders.
@@ -84,9 +91,12 @@ function App() {
           {activeSection === 'home' ? (
             <>
               <section className="welcome" aria-labelledby="welcome-title">
+                <div className="panel-copy">
                 <p className="eyebrow">Settle in</p>
                 <h2 id="welcome-title">One subject. One step at a time.</h2>
                 <p>Welcome to Study.exe, your cozy corner for finals review. Make a little room for learning, at your own pace.</p>
+                </div>
+                <img className="panel-mascot" src={homeMascot} width="500" height="500" alt="" aria-hidden="true" />
               </section>
               <section className="subject-section" aria-labelledby="subjects-title">
                 <h2 id="subjects-title">Your subjects</h2>
@@ -127,9 +137,12 @@ function App() {
             </>
           ) : (
             <section className="placeholder" aria-labelledby="placeholder-title">
+              <div className="panel-copy">
               <p className="eyebrow">{selectedSubject.name}</p>
               <h2 id="placeholder-title">{placeholders[activeSection].title}</h2>
               <p>{placeholders[activeSection].text}</p>
+              </div>
+              <img className="panel-mascot" src={panelMascots[activeSection]} width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" />
             </section>
           )}
           <footer className="workspace-footer">Study.exe <span aria-hidden="true">/</span> A steady pace is a good pace.</footer>
