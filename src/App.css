@@ -47,6 +47,9 @@
 .subject-status h2 { margin: 4px 0 6px; color: var(--primary); }
 .subject-status p:last-child { max-width: 62ch; font-size: 0.9rem; }
 .status-badge { flex: 0 0 auto; padding: 4px 9px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--primary); font-size: 0.75rem; font-weight: 600; }
+.reviewer-tabs { display: flex; gap: 8px; margin-top: 20px; padding: 5px; width: fit-content; max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--surface); }
+.reviewer-tabs button { min-height: 40px; padding: 8px 14px; border: 0; border-radius: 4px; background: transparent; color: var(--text); font-size: 0.85rem; }
+.reviewer-tabs button[aria-current='page'] { background: var(--blush); color: var(--primary); font-weight: 600; }
 .reviewer-layout { width: 100%; min-width: 0; margin: 24px 0 32px; display: grid; grid-template-columns: minmax(190px, 230px) minmax(0, 1fr); gap: 24px; align-items: start; }
 .lesson-sidebar { min-width: 0; position: sticky; top: 16px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--surface); }
 .lesson-navigation { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
@@ -79,6 +82,37 @@ tbody tr:last-child td { border-bottom: 0; }
 .source-notes { margin-top: 16px; padding: 14px 18px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--cream); font-size: 0.85rem; }
 .source-notes summary { color: var(--primary); cursor: pointer; font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
 .source-notes ul { margin: 10px 0 0; padding-left: 1.25rem; display: grid; gap: 8px; }
+.flashcards { width: 100%; max-width: 780px; margin: 24px auto 32px; }
+.flashcards-intro { padding: 24px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--blush); display: grid; grid-template-columns: minmax(0, 1fr) 112px; align-items: center; gap: 20px; }
+.flashcards-intro h2 { margin: 4px 0 8px; color: var(--primary); }
+.flashcards-intro p:last-child { max-width: 56ch; }
+.flashcards-mascot { width: 112px; max-width: 100%; height: auto; image-rendering: pixelated; }
+.deck-filters, .deck-controls, .confidence-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.deck-filters { margin: 18px 0; align-items: center; }
+.filter-label { margin-right: 4px; font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+.deck-filters button, .deck-controls button, .confidence-actions button { min-height: 42px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--surface); color: var(--text); font-size: 0.82rem; }
+.deck-filters button[aria-pressed='true'] { background: var(--blush); border-color: var(--primary); color: var(--primary); font-weight: 600; }
+.deck-controls button:disabled { cursor: not-allowed; opacity: 0.55; }
+.flashcard-status { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; color: var(--primary); font-family: var(--font-display); font-size: 0.92rem; font-weight: 600; }
+.flashcard { width: 100%; min-height: 300px; padding: clamp(24px, 6vw, 48px); border: 1px solid var(--border); border-top: 5px solid var(--primary); border-radius: var(--radius-panel); background: var(--surface); color: var(--text); display: flex; flex-direction: column; align-items: flex-start; text-align: left; transition: background-color 160ms ease, border-color 160ms ease; }
+.flashcard:hover, .flashcard.is-flipped { background: var(--cream); }
+.flashcard-label { color: var(--primary); font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.flashcard-text { margin: auto 0; max-width: 38ch; font-family: var(--font-display); font-size: clamp(1.6rem, 4.5vw, 2.35rem); font-weight: 600; line-height: 1.2; overflow-wrap: anywhere; }
+.flashcard-hint { color: #80655e; font-size: 0.75rem; }
+.confidence-actions { justify-content: center; margin: 16px 0; }
+.confidence-actions button { min-width: 130px; }
+.confidence-actions .primary-button { background: var(--primary); border-color: var(--primary); color: var(--surface); }
+.confidence-actions .primary-button:hover { background: var(--accent); border-color: var(--accent); }
+.confidence-actions .primary-button:active { background: var(--primary); }
+.confidence-actions .primary-button:disabled { background: #a7837b; border-color: #a7837b; color: var(--surface); cursor: not-allowed; }
+.deck-controls { justify-content: center; }
+.deck-complete { padding: 32px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--surface); text-align: center; }
+.deck-complete h3 { margin: 6px 0 10px; color: var(--primary); font-size: 1.5rem; }
+.deck-complete p { max-width: 48ch; margin: 0 auto 18px; }
+.confidence-counts { margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.confidence-counts div { padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--surface); text-align: center; }
+.confidence-counts dt { font-size: 0.72rem; }
+.confidence-counts dd { margin: 2px 0 0; color: var(--primary); font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; }
 .workspace-footer { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.75rem; }
 .workspace-footer span { padding: 0 8px; }
 .skip-link { position: absolute; left: 16px; top: -100px; padding: 12px 16px; background: var(--surface); color: var(--primary); z-index: 1; }
@@ -120,4 +154,16 @@ tbody tr:last-child td { border-bottom: 0; }
   .reviewer-mascot { justify-self: center; width: 96px; }
   .lesson-section { padding: 18px; }
   .table-scroll { -webkit-overflow-scrolling: touch; }
+  .reviewer-tabs { width: 100%; }
+  .reviewer-tabs button { flex: 1 1 0; }
+  .flashcards-intro { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+  .flashcards-mascot { justify-self: center; width: 96px; }
+  .flashcard { min-height: 260px; padding: 24px; }
+  .flashcard-status { align-items: flex-start; flex-direction: column; gap: 2px; }
+  .confidence-actions > button { flex: 1 1 130px; }
+  .deck-controls > button { flex: 1 1 120px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard { transition: none; }
 }

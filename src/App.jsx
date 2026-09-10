@@ -4,6 +4,8 @@ import homeMascot from './assets/mascot/mascot-home.png'
 import reviewerMascot from './assets/mascot/mascot-reviewer.png'
 import quizMascot from './assets/mascot/mascot-quiz.png'
 import progressMascot from './assets/mascot/mascot-progress.png'
+import flashcardsMascot from './assets/mascot/mascot-flashcards.png'
+import Reviewer from './components/Reviewer.jsx'
 import './App.css'
 
 const sections = [
@@ -14,7 +16,6 @@ const sections = [
 ]
 
 const placeholders = {
-  reviewer: { title: 'A little review, one topic at a time.', text: 'Lessons and flashcards will have a home here. Your reviewer is coming soon.' },
   quiz: { title: 'A space to put your learning into practice.', text: 'Practice quizzes are coming soon. There are no questions to answer just yet.' },
   progress: { title: 'Every small step will count.', text: 'No study activity yet. This space will show your progress once study features are available.' },
 }
@@ -107,7 +108,7 @@ function App() {
                       <div className="subject-details">
                         <p className="eyebrow">Study space available</p>
                         <h3>{subject.name}</h3>
-                        <p>Reviewer and practice materials coming soon.</p>
+                        <p>{subject.coverageNote}</p>
                       </div>
                       <button className="primary-button" type="button" onClick={() => {
                         setSelectedSubjectId(subject.id)
@@ -134,6 +135,18 @@ function App() {
                   ))}
                 </ul>
               </section>
+            </>
+          ) : activeSection === 'reviewer' ? (
+            <>
+              <section className="subject-status" aria-label="Subject coverage status">
+                <div>
+                  <p className="eyebrow">{selectedSubject.status}</p>
+                  <h2>{selectedSubject.name} reviewer</h2>
+                  <p>{selectedSubject.coverageNote}</p>
+                </div>
+                <span className="status-badge">{selectedSubject.status}</span>
+              </section>
+              <Reviewer subject={selectedSubject} mascot={reviewerMascot} flashcardsMascot={flashcardsMascot} />
             </>
           ) : (
             <section className="placeholder" aria-labelledby="placeholder-title">
